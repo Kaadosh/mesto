@@ -1,0 +1,147 @@
+.page {
+  min-width: 320px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: black;
+}
+
+.header {
+  min-width: 320px;
+  min-height: 56px;
+
+  margin-top: 28px;
+  box-sizing: border-box;
+}
+
+.header__logo {
+  width: 103px;
+  margin-left: 27px;
+  margin-bottom: 31px;
+}
+
+.header__line {
+  color: #545454;
+  opacity: .7;
+  margin: 0;
+}
+
+
+/* !profile */
+.profile__title {
+  color: #fff;
+}
+
+.profile__subtitle {
+  color: #fff;
+}
+
+.profile__container {
+  margin-top: 42px;
+}
+
+.profile__img {
+  display: block;
+  margin: 0 auto;
+}
+
+.profile__info {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+}
+
+.profile__title {
+  margin: 0;
+  margin: 26px 10px 14px 0;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 27px;
+  line-height: 33px;
+}
+
+.profile__subtitle {
+  margin: 0;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+.profile__button {
+  margin: 0;
+  padding: 0;
+  width: 18px;
+  height: 18px;
+  background-color: black;
+}
+
+.profile__add {
+  margin: 0 auto;
+  padding: 0px;
+  margin-top: 36px;
+  margin-bottom: 36px;
+  min-width: 282px;
+  min-height: 50px;
+  display: block;
+  text-align: center;
+  color: black;
+  background-color: black;
+  border: 1px solid white;
+}
+
+
+/* !cards */
+.cards__container {}
+
+.card {
+  max-width: 282px;
+  overflow: hidden;
+  background-color: #fff;
+  border-radius: 10px;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.card__photo {
+  display: block;
+}
+
+
+.card__title {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29px;
+}
+
+.card__like {}
+
+.footer__container {
+  margin-top: auto;
+  padding-top: 48px;
+  padding-bottom: 36px;
+
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+
+  color: #545454;
+}
+
+[class*="__container"] {
+  margin-left: 19px;
+  margin-right: 19px;
+}
