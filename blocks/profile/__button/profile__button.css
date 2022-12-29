@@ -5,4 +5,12 @@
   width: 18px;
   height: 18px;
   background-color: black;
+  border-style: none;
+}
+
+
+
+
+.profile__button:hover {
+  opacity: .6;
 }

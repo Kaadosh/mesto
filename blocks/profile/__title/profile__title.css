@@ -1,10 +1,6 @@
 .profile__title {
   color: #fff;
-
   margin: 26px 0 14px 32px;
-
-  font-family: 'Inter';
-  font-style: normal;
   font-weight: 500;
   font-size: 27px;
   line-height: 33px;
@@ -14,5 +10,7 @@
 @media screen and (min-width: 1279px) {
   .profile__title {
     margin-left: 0;
+    font-size: 42px;
+    line-height: 48px;
   }
 }
