@@ -1,0 +1,22 @@
+.page {
+  min-width: 320px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: black;
+  font-family: 'Inter', 'Arial', sans-serif;
+  font-size: normal;
+}
+
+[class*="__container"] {
+  margin-left: 19px;
+  margin-right: 19px;
+}
+
+
+@media screen and (min-width: 1024px) {
+  [class*="__container"] {
+    margin-left: 200px;
+    margin-right: 200px;
+  }
+}

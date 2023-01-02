@@ -1,0 +1,16 @@
+.profile__button {
+  margin: 0;
+  padding: 0;
+  padding-right: 20px;
+  width: 18px;
+  height: 18px;
+  background-color: black;
+  border-style: none;
+}
+
+
+
+
+.profile__button:hover {
+  opacity: .6;
+}

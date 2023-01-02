@@ -1,0 +1,15 @@
+.popup__line {
+  /* margin-top: 13px;
+  margin-bottom: 30px; */
+  margin: 13px 22px 30px 22px;
+  opacity: .2;
+}
+
+
+
+@media screen and (min-width: 779px) {
+  .popup__line {
+    margin-left: 36px;
+    margin-right: 36px;
+  }
+}
