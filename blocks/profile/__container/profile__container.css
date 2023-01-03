@@ -1,4 +1,4 @@
-.profile {
+.profile__container {
   margin-top: 42px;
   display: flex;
   flex-direction: column;
@@ -10,7 +10,7 @@
 
 
 @media screen and (min-width: 1279px) {
-  .profile {
+  .profile__container {
     flex-direction: row;
     margin-top: 40px;
     margin-bottom: 50px;
