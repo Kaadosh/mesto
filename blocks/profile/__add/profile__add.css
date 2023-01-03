@@ -9,6 +9,7 @@
   text-align: center;
   background-color: black;
   border: 1px solid white;
+  cursor: pointer;
 }
 
 .profile__add:hover {
