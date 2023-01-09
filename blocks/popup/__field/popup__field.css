@@ -1,0 +1,33 @@
+.popup__field {
+  /* min-width: 238px; */
+  min-height: 26px;
+  padding: 0;
+  margin-left: 22px;
+  margin-right: 22px;
+  margin-bottom: 27px;
+  border: none;
+  border-color: none;
+  border-bottom: 1px solid rgba(84, 84, 84, .2);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+
+}
+
+
+
+@media screen and (min-width: 779px) {
+  .popup__field {
+    margin-bottom: 30px;
+    margin-left: 36px;
+    margin-right: 36px;
+  }
+
+  .popup__field:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+.popup__field:focus {
+  outline-style: none;
+}

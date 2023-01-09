@@ -1,16 +1,20 @@
-.profile__container {
+.profile {
   margin-top: 42px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
   align-content: center;
-  align-items: center;
+  align-items: flex-start;
+  margin-top: 42px;
+  margin-left: 19px;
+  margin-right: 19px;
 }
 
-
-@media screen and (min-width: 1279px) {
-  .profile__container {
+@media screen and (min-width: 1024px) {
+  .profile {
+    margin-left: 200px;
+    margin-right: 200px;
     flex-direction: row;
     margin-top: 40px;
     margin-bottom: 50px;

@@ -9,9 +9,31 @@
   cursor: pointer;
 }
 
-
-
-
 .profile__button:hover {
   opacity: .6;
+}
+
+.profile__button::after {
+  content: " ";
+  background-image: url(../../../img/btn/Edit-Button.svg);
+  background-repeat: no-repeat;
+  background-position-y: bottom;
+  display: block;
+  background-size: contain;
+  width: 18px;
+  height: 18px;
+
+}
+
+@media screen and (min-width: 1024px) {
+  .profile__button {
+    width: 24px;
+    height: 24px;
+  }
+
+  .profile__button::after {
+    background-image: url(../../../img/btn/Edit-Button1280.svg);
+    width: 24px;
+    height: 24px;
+  }
 }

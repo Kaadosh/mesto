@@ -1,13 +1,15 @@
 .page {
   min-width: 320px;
+  max-width: 1280px;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   background-color: black;
   font-family: 'Inter', 'Arial', sans-serif;
-  font-size: normal;
+  font-style: normal;
 }
 
+/* !не забыть исправить */
 [class*="__container"] {
   margin-left: 19px;
   margin-right: 19px;

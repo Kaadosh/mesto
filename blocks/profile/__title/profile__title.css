@@ -4,11 +4,15 @@
   font-weight: 500;
   font-size: 27px;
   line-height: 33px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 
 @media screen and (min-width: 1279px) {
   .profile__title {
+    margin-bottom: 3px;
     margin-left: 0;
     font-size: 42px;
     line-height: 48px;

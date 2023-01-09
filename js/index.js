@@ -1,7 +1,14 @@
 const popupElement = document.querySelector('.popup');
 const popupCloseElement = popupElement.querySelector('.popup__close');
-const popupOpenElement = document.querySelector('.profile__button');
+const popupEditorElement = document.querySelector('.profile__button');
 const popupClose = document.querySelector('.popup__button');
+let formElement = document.querySelector('.popup__container');
+let nameInput = formElement.querySelector('.popup__field_input_nickname');
+let jobInput = formElement.querySelector('.popup__field_input_profession');
+
+let personName = document.querySelector('.profile__title');
+let personJob = document.querySelector('.profile__subtitle');
+
 
 
 const togglePopupVisabillity = function (event) {
@@ -14,20 +21,11 @@ const closePopupByOnOverley = function (event) {
   }
 }
 
-popupOpenElement.addEventListener('click', togglePopupVisabillity);
+popupEditorElement.addEventListener('click', togglePopupVisabillity);
 popupCloseElement.addEventListener('click', togglePopupVisabillity);
 popupElement.addEventListener('click', closePopupByOnOverley);
 popupClose.addEventListener('click', togglePopupVisabillity);
 
-
-
-
-let formElement = document.querySelector('.popup__container');
-let nameInput = formElement.querySelector('.popup__text');
-let jobInput = formElement.querySelector('.popup__job');
-
-let personName = document.querySelector('.profile__title');
-let personJob = document.querySelector('.profile__subtitle');
 
 function handleFormSubmit(evt) {
   evt.preventDefault();

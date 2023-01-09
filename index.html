@@ -7,93 +7,78 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="stylesheet" href="./pages/index.css">
-  <title>Mesto</title>
+  <title>Место</title>
 </head>
 
-<body>
-  <div class="page">
-    <header class="header">
-      <img src="./img/logo/logo.svg" class="header__logo" alt="логотип mesto">
-      <hr class="header__line">
-    </header>
-    <div class="main">
-      <section class="profile">
-        <div class="profile__container">
-          <img src="./img/Avatar.png" class="profile__img" alt="изображение Жак-Ива Кусто">
-          <div class="profile__info">
-            <div class="profile__info-name">
-              <h1 class="profile__title">Жак-Ив Кусто</h1>
-              <button class="profile__button"><img src="./img/btn/Edit-Button.png" class="profile__button-img"
-                  alt="Редактировать"></button>
-            </div>
-            <p class="profile__subtitle">Исследователь океана</p>
-          </div>
-          <!--profile__info-->
-
-          <button class="profile__add"><img src="./img/btn/plus.png" alt=" изображение плюс"></button>
+<body class="page">
+  <header class="header">
+    <img src="./img/logo/logo.svg" class="header__logo" alt="логотип mesto">
+  </header>
+  <main class="main">
+    <section class="profile">
+      <img src="./img/Avatar.jpg" class="profile__img" alt="изображение Жак-Ива Кусто">
+      <div class="profile__info">
+        <div class="profile__info-name">
+          <h1 class="profile__title">Жак-Ив Кусто</h1>
+          <button class="profile__button" type="button" aria-label="Редактировать"></button>
         </div>
-
-      </section>
-      <!--profile__container-->
-    </div>
-    <section class="cards">
-      <div class="cards__container">
-        <div class="card">
-          <img src="./img/cards-1.jpg" class="card__photo" alt="фотография монастыря">
-          <h2 class="card__title">Карачаевск</h2>
-          <a href="#"><img src="./img/heart.svg" class="card__like" alt=""></a>
-        </div>
-        <div class="card">
-          <img src="./img/cards-2.jpg" class="card__photo" alt="">
-          <h2 class="card__title">Гора Эльбрус</h2>
-          <a href="#"><img src="./img/heart.svg" class="card__like" alt=""></a>
-        </div>
-        <div class="card">
-          <img src="./img/cards-3.jpg" class="card__photo" alt="">
-          <h2 class="card__title">Домбай</h2>
-          <a href="#"><img src="./img/heart.svg" class="card__like" alt=""></a>
-        </div>
-        <div class="card">
-          <img src="./img/cards-1.jpg" class="card__photo" alt="">
-          <h2 class="card__title">Карачаевск</h2>
-          <a href="#"><img src="./img/heart.svg" class="card__like" alt=""></a>
-        </div>
-        <div class="card">
-          <img src="./img/cards-2.jpg" class="card__photo" alt="">
-          <h2 class="card__title">Гора Эльбрус</h2>
-          <a href="#"><img src="./img/heart.svg" class="card__like" alt=""></a>
-        </div>
-        <div class="card">
-          <img src="./img/cards-3.jpg" class="card__photo" alt="">
-          <h2 class="card__title">Домбай</h2>
-          <a href="#"><img src="./img/heart.svg" class="card__like" alt=""></a>
-        </div>
-
+        <p class="profile__subtitle">Исследователь океана</p>
       </div>
-
-
+      <!--profile__info-->
+      <button class="profile__add" type="button" aria-label="Добавить фото"></button>
+    </section>
+    <!--profile__container-->
+    <section class="cards">
+      <article class="card">
+        <img src="./img/cards-1.jpg" class="card__photo" alt="фотография монастыря">
+        <h2 class="card__title">Карачаевск</h2>
+        <button type="button" aria-label="Лайк" class="card__like"></button>
+      </article>
+      <article class="card">
+        <img src="./img/cards-2.jpg" class="card__photo" alt="">
+        <h2 class="card__title">Гора Эльбрус</h2>
+        <button type="button" aria-label="Лайк" class="card__like"></button>
+      </article>
+      <article class="card">
+        <img src="./img/cards-3.jpg" class="card__photo" alt="">
+        <h2 class="card__title">Домбай</h2>
+        <button type="button" aria-label="Лайк" class="card__like"></button>
+      </article>
+      <article class="card">
+        <img src="./img/cards-1.jpg" class="card__photo" alt="">
+        <h2 class="card__title">Карачаевск</h2>
+        <button type="button" aria-label="Лайк" class="card__like"></button>
+      </article>
+      <article class="card">
+        <img src="./img/cards-2.jpg" class="card__photo" alt="">
+        <h2 class="card__title">Гора Эльбрус</h2>
+        <button type="button" aria-label="Лайк" class="card__like"></button>
+      </article>
+      <article class="card">
+        <img src="./img/cards-3.jpg" class="card__photo" alt="">
+        <h2 class="card__title">Домбай</h2>
+        <button type="button" aria-label="Лайк" class="card__like"></button>
+      </article>
       <!-- card -->
     </section>
-    <!--main-->
-    <footer class="footer">© 2022 Mesto Russia</footer>
-    <!--footer-->
-    <div class="popup">
-      <form class="popup__container">
-        <button class="popup__close"><img src="./img/btn/Close-Icon.png" alt="кнопка"></button>
-        <!-- <img src="./img/btn/Close Icon.png" class="popup__close" alt=""> -->
-        <h2 class="popup__title">Редактировать профиль</h2>
-        <input type="text" class="popup__text" value="Жак-Ив Кусто">
-        <hr class="popup__line">
-        <input type="text" class="popup__job" value="Исследователь океана">
-        <hr class="popup__line">
-        <input type="submit" class="popup__button" value="Сохранить">
+  </main>
+  <!--main-->
+  <footer class="footer">
+    <p class="footer__autor">© 2022 Mesto Russia</p>
+  </footer>
+  <!--footer-->
+  <div class="popup">
+    <div class="popup__container">
+      <button type="button" aria-label="закрыть" class="popup__close"></button>
+      <h2 class="popup__title">Редактировать профиль</h2>
+      <form class="popup__form" name="formProfile">
+        <input type="text" name="nickName" class="popup__field popup__field_input_nickname" value="Жак-Ив Кусто">
+        <input type="text" name="profession" class="popup__field popup__field_input_profession"
+          value="Исследователь океана">
+        <button type="submit" name="save" class="popup__button">Сохранить</button>
       </form>
-    </div><!-- popup -->
-  </div>
-  <!--page-->
-
-
-
+    </div>
+  </div><!-- popup -->
   <script src="./js/index.js"></script>
 </body>
 
