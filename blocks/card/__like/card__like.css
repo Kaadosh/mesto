@@ -12,7 +12,7 @@
 
 .card__like::after {
   content: " ";
-  background-image: url(../../../../img/btn/like.svg);
+  background-image: url(../../../img/btn/like.svg);
   width: 22px;
   height: 19px;
   text-align: center;
