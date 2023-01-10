@@ -1,13 +1,16 @@
 .popup__close {
-  /* width: 32px;
-  height: 32px; */
   border: none;
+  outline: none;
   position: absolute;
-  left: 262px;
+  right: 0;
   top: -37px;
   padding: 0;
   background-color: transparent;
   cursor: pointer;
+}
+
+.popup__close:hover {
+  opacity: .6;
 }
 
 .popup__close::after {
@@ -30,8 +33,4 @@
     width: 32px;
     height: 32px;
   }
-}
-
-.popup__close:hover {
-  opacity: .6;
 }

@@ -8,17 +8,3 @@
   font-family: 'Inter', 'Arial', sans-serif;
   font-style: normal;
 }
-
-/* !не забыть исправить */
-[class*="__container"] {
-  margin-left: 19px;
-  margin-right: 19px;
-}
-
-
-@media screen and (min-width: 1024px) {
-  [class*="__container"] {
-    margin-left: 200px;
-    margin-right: 200px;
-  }
-}

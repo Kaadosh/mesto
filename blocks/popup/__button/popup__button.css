@@ -1,18 +1,28 @@
 .popup__button {
+  border: none;
+  outline: none;
   min-width: 238px;
   min-height: 46px;
   display: block;
   padding: 0;
-  border: 1px;
   margin: 0 auto;
   margin-top: 20px;
   color: #fff;
   background-color: #000;
+  border-radius: 2px;
   cursor: pointer;
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
   text-align: center;
+}
+
+.popup__button:hover {
+  opacity: .6;
+}
+
+.popup__button:focus {
+  outline-style: none;
 }
 
 
@@ -25,12 +35,4 @@
     margin-bottom: 37px;
 
   }
-}
-
-.popup__button:hover {
-  opacity: .6;
-}
-
-.popup__button:focus {
-  outline-style: none;
 }
