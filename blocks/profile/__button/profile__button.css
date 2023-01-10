@@ -32,7 +32,6 @@
   }
 
   .profile__button::after {
-    background-image: url(../../../img/btn/Edit-Button1280.svg);
     width: 24px;
     height: 24px;
   }
