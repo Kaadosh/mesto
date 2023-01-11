@@ -1,5 +1,4 @@
 .popup_opened {
-  /* по брифу можно display block */
   display: flex;
   flex-direction: column;
   justify-content: center;
