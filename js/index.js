@@ -26,8 +26,8 @@ function handleFormSubmit(evt) {
   togglePopupVisabillity()
 }
 popupEditorElement.addEventListener('click', function () {
-  personName.textContent = nameInput.value;
-  personJob.textContent = jobInput.value;
+  nameInput.value = personName.textContent;
+  jobInput.value = personJob.textContent;
   togglePopupVisabillity()
 });
 popupCloseElement.addEventListener('click', togglePopupVisabillity);
