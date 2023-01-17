@@ -8,7 +8,7 @@
 
 
 
-@media screen and (min-width: 1024px) {
+@media screen and (width>=1024px) {
   .header {
     margin-left: 200px;
     margin-right: 200px;

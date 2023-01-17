@@ -11,7 +11,7 @@
    line-height: 17px;
  }
 
- @media screen and (min-width: 779px) {
+ @media screen and (width >=779px) {
    .footer {
      margin-left: 200px;
      margin-right: 200px;
