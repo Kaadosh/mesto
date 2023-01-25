@@ -29,6 +29,9 @@ const card = templateCards.querySelector('.card');
 
 
 
+
+
+
 // общая функция на открытие и закрытие попапов
 const togglePopupVisabillity = function (element) {
   element.classList.toggle('popup_opened')
@@ -97,32 +100,95 @@ const initialCards = [
 
 
 
-// ! добавление карточек через templete
-function createCard(name, link, alt) {
-  const elementCard = templateCards.cloneNode(true);
-  const cardImg = elementCard.querySelector('.card__photo');
-  const cardTitle = elementCard.querySelector('.card__title');
+// // ! добавление карточек через templete
+// function createCard(name, link, alt) {
+//   const elementCard = templateCards.cloneNode(true);
+//   const cardImg = elementCard.querySelector('.card__photo');
+//   const cardTitle = elementCard.querySelector('.card__title');
 
-  cardImg.src = link;
-  cardImg.alt = alt;
-  cardTitle.textContent = name;
+//   cardImg.src = link;
+//   cardImg.alt = alt;
+//   cardTitle.textContent = name;
+
+//   const cardDelete = elementCard.querySelector('.card__delete');
+//   cardDelete.addEventListener('click', () => {
+//     cardImg.remove;
+//   })
+
+//   return elementCard;
+// }
+// // ! перебор массива для добовление карточек из обьекта
+// initialCards.forEach(function (item) {
+//   const newCard = createCard(item.name, item.link, item.name)
+//   cards.prepend(newCard);
+// });
+
+// //  поключение формы для карточек 
+// // ? Не работает отбражение картинки
+// function handleCardSubmit(evt) {
+//   evt.preventDefault()
+//   const renderCard = createCard(formImgCards.value, formNameCards.value, formNameCards.value)
+//   cards.prepend(renderCard);
+//   togglePopupVisabillity(popupCards);
+
+// };
+
+// popupCards.addEventListener('submit', handleCardSubmit);
+
+// const deleteCard = function btnCard(element) {
+//   element.classList.remove(elementCard);
+// };
+
+// ! Реализация функции лайка
+function likeCard(button) {
+  button.classList.toggle('card__like_active');
+};
+// ! Реализация функции удаления
+function deleteCard(btn) {
+  const findCard = btn.closest('.card');
+  findCard.remove();
+};
+//  ! создание карт
+const createCard = (item) => {
+
+  const elementCard = templateCards.cloneNode(true);
+  let cardImg = elementCard.querySelector('.card__photo');
+  let cardTitle = elementCard.querySelector('.card__title');
+  const cardLike = elementCard.querySelector('.card__like');
+  const buttonDeleteCard = elementCard.querySelector('.card__delete');
+  cardImg.src = item.link;
+  cardImg.alt = item.name;
+  cardTitle.textContent = item.name;
+
+  cardLike.addEventListener('click', () => likeCard(cardLike));
+  buttonDeleteCard.addEventListener('click', () => deleteCard(buttonDeleteCard));
 
   return elementCard;
-}
-// ! перебор массива для добовление карточек из обьекта
-initialCards.forEach(function (item) {
-  const newCard = createCard(item.name, item.link, item.name)
-  cards.prepend(newCard);
-});
-
-//  поключение формы для карточек 
-// ? Не работает отбражение картинки
-function handleCardSubmit(evt) {
-  evt.preventDefault()
-  const renderCard = createCard(formImgCards.value, formNameCards.value, formNameCards.value)
-  cards.prepend(renderCard);
-  togglePopupVisabillity(popupCards);
-
 };
 
-popupCards.addEventListener('submit', handleCardSubmit);
+// ! Ретендер карт
+const renderCard = (item) => {
+  cards.prepend(createCard(item));
+};
+
+// ! Перебор массива с отображением карт из обьекта
+initialCards.forEach((item) => {
+  renderCard(item);
+});
+
+// ! работа с формой карт
+const formCardHandler = (evt) => {
+  evt.preventDefault();
+  let nameCard = formNameCards.value;
+  let imgCard = formImgCards.value;
+  renderCard(imgCard, nameCard);
+
+
+  formNameCards.value = '';
+  formImgCards.value = '';
+  togglePopupVisabillity(popupCards);
+};
+
+
+
+popupFormCards.addEventListener('submit', formCardHandler);

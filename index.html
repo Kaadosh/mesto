@@ -65,14 +65,25 @@
       </form>
     </div>
   </div><!-- popup -->
-  <template id="cards">
-    <article class="card">
+
+  <div class="popup popup_bigPicture">
+    <div class="popup__container">
       <img class="card__photo" src="" alt="">
       <h2 class="card__title"></h2>
-      <button type="button" aria-label="Лайк" class="card__like"></button>
-    </article>
-  </template>
-  <script src="./js/index.js"></script>
+      <button type="button" aria-label="закрыть" class="popup__close popup_closeBigPicture"></button>
+
+    </div>
+  </div>
+  <!-popup big -->
+    <template id="cards">
+      <article class="card">
+        <button type="button" aria-label="Удалить" class="card__delete"></button>
+        <img class="card__photo" src="" alt="">
+        <h2 class="card__title"></h2>
+        <button type="button" aria-label="Лайк" class="card__like"></button>
+      </article>
+    </template>
+    <script src="./js/index.js"></script>
 </body>
 
 </html>
