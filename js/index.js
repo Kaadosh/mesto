@@ -1,7 +1,7 @@
 // popups
 const popupProfile = document.querySelector('.popup_profile');
 const popupCards = document.querySelector('.popup_addCard');
-
+const popupView = document.querySelector('.popup_view');
 // откытие попапов
 const popupOpenProfile = document.querySelector('.profile__button');
 const popupOpenCards = document.querySelector('.profile__add');
@@ -9,7 +9,7 @@ const popupOpenCards = document.querySelector('.profile__add');
 // закрытие попапов
 const popupCloseProfile = popupProfile.querySelector('.popup_closeProfile');
 const popupCloseCards = popupCards.querySelector('.popup_closeCard');
-
+const popupCloseView = popupView.querySelector('.popup_closeView');
 // форма редоктирования профайла
 let popupFormProfile = document.querySelector('.popup_formProfile');
 let formNickName = popupFormProfile.querySelector('.popup__field_input_nickname');
@@ -26,7 +26,9 @@ const formImgCards = popupFormCards.querySelector('.popup__field_input_imagecard
 const templateCards = document.querySelector('#cards').content;
 const cards = document.querySelector('.cards');
 const card = templateCards.querySelector('.card');
-
+//   попап фото
+const imgView = popupView.querySelector('.popup__photoView');
+const titleView = popupView.querySelector('.popup__titleView');
 
 
 
@@ -54,6 +56,10 @@ popupCloseProfile.addEventListener('click', function () {
 // слушатель на закрытие popupCloseCards
 popupCloseCards.addEventListener('click', function () {
   togglePopupVisabillity(popupCards)
+});
+
+popupCloseView.addEventListener('click', function () {
+  togglePopupVisabillity(popupView)
 });
 
 // Возврат значение формы в профиль
@@ -139,6 +145,14 @@ const initialCards = [
 //   element.classList.remove(elementCard);
 // };
 
+function viewCard(item) {
+  togglePopupVisabillity(popupView)
+  imgView.scr = item.link;
+  imgView.alt = item.name;
+  titleView.textContent = item.name;
+
+}
+
 // ! Реализация функции лайка
 function likeCard(button) {
   button.classList.toggle('card__like_active');
@@ -152,16 +166,18 @@ function deleteCard(btn) {
 const createCard = (item) => {
 
   const elementCard = templateCards.cloneNode(true);
-  let cardImg = elementCard.querySelector('.card__photo');
+  const cardImg = elementCard.querySelector('.card__photo');
   let cardTitle = elementCard.querySelector('.card__title');
   const cardLike = elementCard.querySelector('.card__like');
   const buttonDeleteCard = elementCard.querySelector('.card__delete');
+  const popupView = document.querySelector('.popup_view');
   cardImg.src = item.link;
   cardImg.alt = item.name;
   cardTitle.textContent = item.name;
 
   cardLike.addEventListener('click', () => likeCard(cardLike));
   buttonDeleteCard.addEventListener('click', () => deleteCard(buttonDeleteCard));
+  cardImg.addEventListener('click', () => viewCard(item));
 
   return elementCard;
 };
