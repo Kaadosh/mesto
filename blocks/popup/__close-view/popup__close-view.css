@@ -1,11 +1,11 @@
-.popup_close_view {
+.popup__close-view {
   top: -35px;
   right: 80px;
 }
 
 
 @media screen and (width>=779px) {
-  .popup_close_view {
+  .popup__close-view {
     top: -38px;
     right: 438px;
   }

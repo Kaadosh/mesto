@@ -1,24 +1,24 @@
 // popups
-const popupProfile = document.querySelector('.popup_profile');
-const popupCards = document.querySelector('.popup_addCard');
-const popupView = document.querySelector('.popup_view');
+const popupProfile = document.querySelector('.popup__profile');
+const popupCards = document.querySelector('.popup__add-card');
+const popupView = document.querySelector('.popup__view');
 // откытие попапов
 const popupOpenProfile = document.querySelector('.profile__button');
 const popupOpenCards = document.querySelector('.profile__add');
 
 // закрытие попапов
-const popupCloseProfile = popupProfile.querySelector('.popup_close_profile');
-const popupCloseCards = popupCards.querySelector('.popup_close_card');
-const popupCloseView = popupView.querySelector('.popup_close_view');
+const popupCloseProfile = popupProfile.querySelector('.popup__close-profile');
+const popupCloseCards = popupCards.querySelector('.popup__close-card');
+const popupCloseView = popupView.querySelector('.popup__close-view');
 // форма редоктирования профайла
-let popupFormProfile = document.querySelector('.popup_form_profile');
+let popupFormProfile = document.querySelector('.popup__form-profile');
 let formNickName = popupFormProfile.querySelector('.popup__field_input_nickname');
 let formProfession = popupFormProfile.querySelector('.popup__field_input_profession');
 let nameProfile = document.querySelector('.profile__title');
 let professionProfile = document.querySelector('.profile__subtitle');
 
 // форма редоктирования карт
-const popupFormCards = document.querySelector('.popup_form_cards');
+const popupFormCards = document.querySelector('.popup__form-cards');
 const formNameCards = popupFormCards.querySelector('.popup__field_input_namecard');
 const formImgCards = popupFormCards.querySelector('.popup__field_input_imagecard');
 
@@ -27,8 +27,8 @@ const templateCards = document.querySelector('#cards').content;
 const cards = document.querySelector('.cards');
 const card = templateCards.querySelector('.card');
 //   попап фото
-const imgView = popupView.querySelector('.popup__photoView');
-const titleView = popupView.querySelector('.popup__titleView');
+const imgView = popupView.querySelector('.popup__photo-view');
+const titleView = popupView.querySelector('.popup__title-view');
 
 
 
@@ -132,7 +132,7 @@ const createCard = (item) => {
   let cardTitle = elementCard.querySelector('.card__title');
   const cardLike = elementCard.querySelector('.card__like');
   const buttonDeleteCard = elementCard.querySelector('.card__delete');
-  const popupView = document.querySelector('.popup_view');
+  const popupView = document.querySelector('.popup__view');
   cardImg.src = item.link;
   cardImg.alt = item.name;
   cardTitle.textContent = item.name;

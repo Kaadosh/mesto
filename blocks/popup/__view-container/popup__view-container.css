@@ -1,4 +1,4 @@
-.popup__viewContainer {
+.popup__view-container {
   position: relative;
   top: 147px;
   left: 40px;
@@ -8,7 +8,7 @@
 
 
 @media screen and (width>=779px) {
-  .popup__viewContainer {
+  .popup__view-container {
     top: 90px;
     left: 246px;
   }
