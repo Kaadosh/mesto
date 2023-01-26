@@ -106,48 +106,10 @@ const initialCards = [
 
 
 
-// // ! добавление карточек через templete
-// function createCard(name, link, alt) {
-//   const elementCard = templateCards.cloneNode(true);
-//   const cardImg = elementCard.querySelector('.card__photo');
-//   const cardTitle = elementCard.querySelector('.card__title');
-
-//   cardImg.src = link;
-//   cardImg.alt = alt;
-//   cardTitle.textContent = name;
-
-//   const cardDelete = elementCard.querySelector('.card__delete');
-//   cardDelete.addEventListener('click', () => {
-//     cardImg.remove;
-//   })
-
-//   return elementCard;
-// }
-// // ! перебор массива для добовление карточек из обьекта
-// initialCards.forEach(function (item) {
-//   const newCard = createCard(item.name, item.link, item.name)
-//   cards.prepend(newCard);
-// });
-
-// //  поключение формы для карточек 
-// // ? Не работает отбражение картинки
-// function handleCardSubmit(evt) {
-//   evt.preventDefault()
-//   const renderCard = createCard(formImgCards.value, formNameCards.value, formNameCards.value)
-//   cards.prepend(renderCard);
-//   togglePopupVisabillity(popupCards);
-
-// };
-
-// popupCards.addEventListener('submit', handleCardSubmit);
-
-// const deleteCard = function btnCard(element) {
-//   element.classList.remove(elementCard);
-// };
 
 function viewCard(item) {
   togglePopupVisabillity(popupView)
-  imgView.scr = item.link;
+  imgView.src = item.link;
   imgView.alt = item.name;
   titleView.textContent = item.name;
 
@@ -184,7 +146,8 @@ const createCard = (item) => {
 
 // ! Ретендер карт
 const renderCard = (item) => {
-  cards.prepend(createCard(item));
+  const elementCard = createCard
+  cards.append(elementCard(item));
 };
 
 // ! Перебор массива с отображением карт из обьекта
@@ -195,9 +158,10 @@ initialCards.forEach((item) => {
 // ! работа с формой карт
 const formCardHandler = (evt) => {
   evt.preventDefault();
-  let nameCard = formNameCards.value;
-  let imgCard = formImgCards.value;
-  renderCard(imgCard, nameCard);
+  const newCard = { name: formNameCards.value, link: formImgCards.value, };
+  cards.prepend(createCard(newCard));
+
+
 
 
   formNameCards.value = '';
@@ -207,4 +171,4 @@ const formCardHandler = (evt) => {
 
 
 
-popupFormCards.addEventListener('submit', formCardHandler);
+popupFormCards.addEventListener('submit', formCardHandler); 

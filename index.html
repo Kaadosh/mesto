@@ -29,11 +29,6 @@
     </section>
     <!--profile__container-->
     <section class="cards">
-      <!-- <article class="card">
-        <img class="card__photo" src="" alt="">
-        <h2 class="card__title"></h2>
-        <button type="button" aria-label="Лайк" class="card__like"></button>
-      </article> -->
     </section>
   </main>
   <!--main-->
@@ -58,8 +53,8 @@
       <button type="button" aria-label="закрыть" class="popup__close popup_closeCard"></button>
       <h2 class="popup__title">Новое место</h2>
       <form class="popup__form popup_formCards" name="formCards">
-        <input type="text" name="nickName" class="popup__field popup__field_input_namecard" placeholder="Название">
-        <input type="url" name="profession" class="popup__field popup__field_input_imagecard"
+        <input type="text" name="nameCard" class="popup__field popup__field_input_namecard" placeholder="Название">
+        <input type="url" name="urlCard" class="popup__field popup__field_input_imagecard"
           placeholder="Ссылка на картинку">
         <button type="submit" name="save" class="popup__button">Сохранить</button>
       </form>
@@ -67,23 +62,23 @@
   </div><!-- popup -->
 
   <div class="popup popup_view">
-    <div class="popup__container">
-      <img class="popup__photoView" src="" alt="">
+    <div class="popup__viewContainer">
+      <img class="popup__photoView" src="#" alt="#">
       <h2 class="popup__titleView"></h2>
       <button type="button" aria-label="закрыть" class="popup__close popup_closeView"></button>
 
     </div>
   </div>
-  <!-popup big -->
-    <template id="cards">
-      <article class="card">
-        <button type="button" aria-label="Удалить" class="card__delete"></button>
-        <img class="card__photo" src="" alt="">
-        <h2 class="card__title"></h2>
-        <button type="button" aria-label="Лайк" class="card__like"></button>
-      </article>
-    </template>
-    <script src="./js/index.js"></script>
+  <!-- popup big -->
+  <template id="cards">
+    <article class="card">
+      <button type="button" aria-label="Удалить" class="card__delete"></button>
+      <img class="card__photo" src="" alt="">
+      <h2 class="card__title"></h2>
+      <button type="button" aria-label="Лайк" class="card__like"></button>
+    </article>
+  </template>
+  <script src="./js/index.js"></script>
 </body>
 
 </html>
