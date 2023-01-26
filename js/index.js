@@ -1,7 +1,7 @@
 // popups
-const popupProfile = document.querySelector('.popup__profile');
-const popupCards = document.querySelector('.popup__add-card');
-const popupView = document.querySelector('.popup__view');
+const popupProfile = document.querySelector('#popup__profile');
+const popupCards = document.querySelector('#popup__add-card');
+const popupView = document.querySelector('#popup__view');
 // откытие попапов
 const popupOpenProfile = document.querySelector('.profile__button');
 const popupOpenCards = document.querySelector('.profile__add');
