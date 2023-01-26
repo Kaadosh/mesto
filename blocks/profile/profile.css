@@ -4,13 +4,14 @@
   flex-direction: column;
   justify-content: center;
   align-content: center;
-  align-items: flex-start;
+  align-items: center;
   margin-left: 19px;
   margin-right: 19px;
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (width >=1024px) {
   .profile {
+    align-items: flex-start;
     margin-left: 200px;
     margin-right: 200px;
     flex-direction: row;

@@ -9,7 +9,7 @@
   margin-right: 19px;
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (width>=1024px) {
   .cards {
     margin-right: 200px;
     margin-left: 200px;
