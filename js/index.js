@@ -7,18 +7,18 @@ const popupOpenProfile = document.querySelector('.profile__button');
 const popupOpenCards = document.querySelector('.profile__add');
 
 // закрытие попапов
-const popupCloseProfile = popupProfile.querySelector('.popup_closeProfile');
-const popupCloseCards = popupCards.querySelector('.popup_closeCard');
-const popupCloseView = popupView.querySelector('.popup_closeView');
+const popupCloseProfile = popupProfile.querySelector('.popup_close_profile');
+const popupCloseCards = popupCards.querySelector('.popup_close_card');
+const popupCloseView = popupView.querySelector('.popup_close_view');
 // форма редоктирования профайла
-let popupFormProfile = document.querySelector('.popup_formProfile');
+let popupFormProfile = document.querySelector('.popup_form_profile');
 let formNickName = popupFormProfile.querySelector('.popup__field_input_nickname');
 let formProfession = popupFormProfile.querySelector('.popup__field_input_profession');
 let nameProfile = document.querySelector('.profile__title');
 let professionProfile = document.querySelector('.profile__subtitle');
 
 // форма редоктирования карт
-const popupFormCards = document.querySelector('.popup_formCards');
+const popupFormCards = document.querySelector('.popup_form_cards');
 const formNameCards = popupFormCards.querySelector('.popup__field_input_namecard');
 const formImgCards = popupFormCards.querySelector('.popup__field_input_imagecard');
 
