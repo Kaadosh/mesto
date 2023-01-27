@@ -101,7 +101,7 @@ const createCard = (item) => {
   cardTemplateImg.alt = item.name;
   cardTempleteTitle.textContent = item.name;
 
-  cardTempleteLike.addEventListener('click', () => likeCard(cardLike));
+  cardTempleteLike.addEventListener('click', () => likeCard(cardTempleteLike));
   buttonDeleteCard.addEventListener('click', () => deleteCard(buttonDeleteCard));
   cardTemplateImg.addEventListener('click', () => openViewCard(item));
 
