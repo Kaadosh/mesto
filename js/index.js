@@ -1,27 +1,27 @@
 
 // popups
-const popupElementProfile = document.querySelector('#popup__profile');
+const formEditProfile = document.querySelector('#popup__profile');
 const popupElementCards = document.querySelector('#popup__add-card');
 const popupElementView = document.querySelector('#popup__view');
 // откытие попапов
-const popupOpenProfile = document.querySelector('.profile__button');
-const popupOpenCards = document.querySelector('.profile__add');
+const buttonOpenEditProfilePopup = document.querySelector('.profile__button');
+const buttonOpenAddCardPopup = document.querySelector('.profile__add');
 
 // закрытие попапов
-const popupCloseProfile = popupElementProfile.querySelector('.popup__close-profile');
-const popupCloseCards = popupElementCards.querySelector('.popup__close-card');
-const popupCloseView = popupElementView.querySelector('.popup__close-view');
+const buttonCloseEditProfilePopup = formEditProfile.querySelector('.popup__close-profile');
+const buttonCloseAddCardPopup = popupElementCards.querySelector('.popup__close-card');
+const buttonCloseImagePopup = popupElementView.querySelector('.popup__close-view');
 // форма редоктирования профайла
 const popupEditFormProfile = document.querySelector('.popup__form-profile');
-const formEditNickName = popupEditFormProfile.querySelector('.popup__field_input_nickname');
-const formEditProfession = popupEditFormProfile.querySelector('.popup__field_input_profession');
+const inputUserName = popupEditFormProfile.querySelector('.popup__field_input_nickname');
+const inputUserProfession = popupEditFormProfile.querySelector('.popup__field_input_profession');
 const nameProfile = document.querySelector('.profile__title');
 const professionProfile = document.querySelector('.profile__subtitle');
 
 // форма редоктирования карт
-const popupEditFormCards = document.querySelector('.popup__form-cards');
-const formEditNameCards = popupEditFormCards.querySelector('.popup__field_input_namecard');
-const formEditImgCards = popupEditFormCards.querySelector('.popup__field_input_imagecard');
+const formAddCard = document.querySelector('.popup__form-cards');
+const inputCardName = formAddCard.querySelector('.popup__field_input_namecard');
+const inputCardLink = formAddCard.querySelector('.popup__field_input_imagecard');
 
 // template 
 const templateCards = document.querySelector('#cards').content;
@@ -37,40 +37,40 @@ const togglePopupVisabillity = function (element) {
 };
 
 // слушатель на открытие popupProfile
-popupOpenProfile.addEventListener('click', function () {
-  formEditNickName.value = nameProfile.textContent;
-  formEditProfession.value = professionProfile.textContent;
-  togglePopupVisabillity(popupElementProfile)
+buttonOpenEditProfilePopup.addEventListener('click', function () {
+  inputUserName.value = nameProfile.textContent;
+  inputUserProfession.value = professionProfile.textContent;
+  togglePopupVisabillity(formEditProfile)
 
 });
 // слушатель на открытие popupCards
-popupOpenCards.addEventListener('click', function () {
+buttonOpenAddCardPopup.addEventListener('click', function () {
   togglePopupVisabillity(popupElementCards)
 });
 
-// слушатель на закрытие popupCloseProfile
-popupCloseProfile.addEventListener('click', function () {
-  togglePopupVisabillity(popupElementProfile)
+// слушатель на закрытие buttonCloseEditProfilePopup
+buttonCloseEditProfilePopup.addEventListener('click', function () {
+  togglePopupVisabillity(formEditProfile)
 });
-// слушатель на закрытие popupCloseCards
-popupCloseCards.addEventListener('click', function () {
+// слушатель на закрытие buttonCloseAddCardPopup
+buttonCloseAddCardPopup.addEventListener('click', function () {
   togglePopupVisabillity(popupElementCards)
 });
 
-popupCloseView.addEventListener('click', function () {
+buttonCloseImagePopup.addEventListener('click', function () {
   togglePopupVisabillity(popupElementView)
 });
 
 // Возврат значение формы в профиль
-function handleFormSubmit(evt) {
+function submitEditProfileForm(evt) {
   evt.preventDefault()
-  nameProfile.textContent = formEditNickName.value;
-  professionProfile.textContent = formEditProfession.value;
-  togglePopupVisabillity(popupElementProfile)
+  nameProfile.textContent = inputUserName.value;
+  professionProfile.textContent = inputUserProfession.value;
+  togglePopupVisabillity(formEditProfile)
 };
 
 // слушатель на форму профиля
-popupElementProfile.addEventListener('submit', handleFormSubmit);
+formEditProfile.addEventListener('submit', submitEditProfileForm);
 
 function openViewCard(item) {
   togglePopupVisabillity(popupElementView)
@@ -117,12 +117,12 @@ const renderCard = (item) => {
 // ! работа с формой карт
 const formCardHandler = (evt) => {
   evt.preventDefault();
-  const newCard = { name: formEditNameCards.value, link: formEditImgCards.value, };
+  const newCard = { name: inputCardName.value, link: inputCardLink.value, };
   sectionCards.prepend(createCard(newCard));
 
-  popupEditFormCards.reset()
+  formAddCard.reset()
 
   togglePopupVisabillity(popupElementCards);
 };
 
-popupEditFormCards.addEventListener('submit', formCardHandler); 
+formAddCard.addEventListener('submit', formCardHandler); 

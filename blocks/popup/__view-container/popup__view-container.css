@@ -2,15 +2,7 @@
   display: inline-block;
   position: relative;
   top: 147px;
-  left: 40px;
   margin: 0 auto;
 }
 
 
-
-@media screen and (width>=779px) {
-  .popup__view-container {
-    top: 90px;
-    left: 320px;
-  }
-}
