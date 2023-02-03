@@ -40,10 +40,11 @@
     <div class="popup__container">
       <button type="button" aria-label="закрыть" class="popup__close popup__close-profile"></button>
       <h2 class="popup__title">Редактировать профиль</h2>
-      <form class="popup__form popup__form-profile" name="formProfile">
-        <input type="text" name="nickName" class="popup__field popup__field_input_nickname" value="Жак-Ив Кусто">
+      <form class="popup__form popup__form-profile" name="formProfile" novalidate>
+        <input type="text" name="nickName" class="popup__field popup__field_input_nickname" value="Жак-Ив Кусто"
+          minlength="2" maxlength="40" required>
         <input type="text" name="profession" class="popup__field popup__field_input_profession"
-          value="Исследователь океана">
+          value="Исследователь океана" minlength="2" maxlength="200" required>
         <button type="submit" name="save" class="popup__button">Сохранить</button>
       </form>
     </div>
@@ -52,10 +53,11 @@
     <div class="popup__container">
       <button type="button" aria-label="закрыть" class="popup__close popup__close-card"></button>
       <h2 class="popup__title">Новое место</h2>
-      <form class="popup__form popup__form-cards" name="formCards">
-        <input type="text" name="nameCard" class="popup__field popup__field_input_namecard" placeholder="Название">
+      <form class="popup__form popup__form-cards" name="formCards" novalidate>
+        <input type="text" name="nameCard" class="popup__field popup__field_input_namecard" placeholder="Название"
+          minlength="2" maxlength="30" required>
         <input type="url" name="urlCard" class="popup__field popup__field_input_imagecard"
-          placeholder="Ссылка на картинку">
+          placeholder="Ссылка на картинку" required>
         <button type="submit" name="save" class="popup__button">Сохранить</button>
       </form>
     </div>
