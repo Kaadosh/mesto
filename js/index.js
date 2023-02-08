@@ -35,6 +35,10 @@ const titleEditView = popupElementView.querySelector('.popup__title-view');
 const togglePopupVisabillity = function (element) {
   element.classList.toggle('popup_opened')
 };
+// Закрытие попапа
+const closePopup = function (element) {
+  element.classList.remove('popup_opened')
+};
 
 // слушатель на открытие popupProfile
 buttonOpenEditProfilePopup.addEventListener('click', function () {
@@ -61,6 +65,23 @@ buttonCloseImagePopup.addEventListener('click', function () {
   togglePopupVisabillity(popupElementView)
 });
 
+// Закрытие по Overlay
+const closeByClickOverlay = function (event) {
+  if (event.target.classList.contains('popup_opened')) {
+    closePopup(event.target);
+  }
+};
+
+// Закрытие по esc
+function closePopupFromEsc(evt) {
+  if (evt.key === 'Escape') {
+    const openedPopup = document.querySelector('.popup_opened');
+    if (openedPopup) {
+      openedPopup.classList.remove('popup_opened');
+    };
+  };
+};
+
 // Возврат значение формы в профиль
 function submitEditProfileForm(evt) {
   evt.preventDefault()
@@ -71,6 +92,12 @@ function submitEditProfileForm(evt) {
 
 // слушатель на форму профиля
 formEditProfile.addEventListener('submit', submitEditProfileForm);
+
+// слушатель на Overlay
+document.addEventListener('click', closeByClickOverlay);
+
+// слушатель Esc
+document.addEventListener('keydown', closePopupFromEsc);
 
 function openViewCard(item) {
   togglePopupVisabillity(popupElementView)
@@ -125,4 +152,6 @@ const formCardHandler = (evt) => {
   togglePopupVisabillity(popupElementCards);
 };
 
-formAddCard.addEventListener('submit', formCardHandler); 
+
+
+formAddCard.addEventListener('submit', formCardHandler);

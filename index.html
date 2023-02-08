@@ -41,10 +41,12 @@
       <button type="button" aria-label="закрыть" class="popup__close popup__close-profile"></button>
       <h2 class="popup__title">Редактировать профиль</h2>
       <form class="popup__form popup__form-profile" name="formProfile" novalidate>
-        <input type="text" name="nickName" class="popup__field popup__field_input_nickname" value="Жак-Ив Кусто"
-          minlength="2" maxlength="40" required>
-        <input type="text" name="profession" class="popup__field popup__field_input_profession"
+        <input type="text" id="nickName" name="nickName" class="popup__field popup__field_input_nickname"
+          value="Жак-Ив Кусто" minlength="2" maxlength="40" required>
+        <span class="nickName-error"></span>
+        <input type="text" id="profession" name="profession" class="popup__field popup__field_input_profession"
           value="Исследователь океана" minlength="2" maxlength="200" required>
+        <span class="profession-error"></span>
         <button type="submit" name="save" class="popup__button">Сохранить</button>
       </form>
     </div>
@@ -54,10 +56,12 @@
       <button type="button" aria-label="закрыть" class="popup__close popup__close-card"></button>
       <h2 class="popup__title">Новое место</h2>
       <form class="popup__form popup__form-cards" name="formCards" novalidate>
-        <input type="text" name="nameCard" class="popup__field popup__field_input_namecard" placeholder="Название"
-          minlength="2" maxlength="30" required>
-        <input type="url" name="urlCard" class="popup__field popup__field_input_imagecard"
+        <input type="text" id="nameCard" name="nameCard" class="popup__field popup__field_input_namecard"
+          placeholder="Название" minlength="2" maxlength="30" required>
+        <span class="nameCard-error"></span>
+        <input type="url" id="urlCard" name="urlCard" class="popup__field popup__field_input_imagecard"
           placeholder="Ссылка на картинку" required>
+        <span class="urlCard-error"></span>
         <button type="submit" name="save" class="popup__button">Сохранить</button>
       </form>
     </div>
@@ -82,6 +86,7 @@
   </template>
   <script src="./js/index.js"></script>
   <script src="./js/constants.js"></script>
+  <script src="./js/validate.js"></script>
 </body>
 
 </html>
