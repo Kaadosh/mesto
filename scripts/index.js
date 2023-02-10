@@ -153,6 +153,7 @@ const submitFormCardHandler = (evt) => {
   formAddCard.reset()
 
   closePopup(popupElementCards);
+  // Сброс кнопки после отправки формы
   enableValidation(newCard);
 };
 
