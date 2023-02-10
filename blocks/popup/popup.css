@@ -8,7 +8,7 @@
   height: 100%;
   /* display: none; */
   transform: translateY(-44.5%) scale(0);
-  transition: .4s ease-in-out;
+  transition: all .4s ease-in-out;
   background-color: rgba(0, 0, 0, 0.5);
 
 }

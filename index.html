@@ -43,10 +43,10 @@
       <form class="popup__form popup__form-profile" name="formProfile" novalidate>
         <input type="text" id="nickName" name="nickName" class="popup__field popup__field_input_nickname"
           value="Жак-Ив Кусто" minlength="2" maxlength="40" required>
-        <span class="nickName-error"></span>
+        <span class="popup__field-error nickName-error"></span>
         <input type="text" id="profession" name="profession" class="popup__field popup__field_input_profession"
           value="Исследователь океана" minlength="2" maxlength="200" required>
-        <span class="profession-error"></span>
+        <span class="popup__field-error profession-error"></span>
         <button type="submit" name="save" class="popup__button">Сохранить</button>
       </form>
     </div>
@@ -58,16 +58,16 @@
       <form class="popup__form popup__form-cards" name="formCards" novalidate>
         <input type="text" id="nameCard" name="nameCard" class="popup__field popup__field_input_namecard"
           placeholder="Название" minlength="2" maxlength="30" required>
-        <span class="nameCard-error"></span>
+        <span class="popup__field-error nameCard-error"></span>
         <input type="url" id="urlCard" name="urlCard" class="popup__field popup__field_input_imagecard"
           placeholder="Ссылка на картинку" required>
-        <span class="urlCard-error"></span>
+        <span class="popup__field-error urlCard-error"></span>
         <button type="submit" name="save" class="popup__button">Сохранить</button>
       </form>
     </div>
   </div><!-- popup -->
 
-  <div class="popup" id="popup__view">
+  <div class="popup popup__view" id="popup__view">
     <div class="popup__view-container">
       <img class="popup__photo-view" src="#" alt="#">
       <h2 class="popup__title-view"></h2>
@@ -84,9 +84,9 @@
       <button type="button" aria-label="Лайк" class="card__like"></button>
     </article>
   </template>
-  <script src="./js/index.js"></script>
-  <script src="./js/constants.js"></script>
-  <script src="./js/validate.js"></script>
+  <script src="./scripts/constants.js"></script>
+  <script src="./scripts/index.js"></script>
+  <script src="./scripts/validate.js"></script>
 </body>
 
 </html>

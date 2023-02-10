@@ -1,4 +1,3 @@
-
 // popups
 const formEditProfile = document.querySelector('#popup__profile');
 const popupElementCards = document.querySelector('#popup__add-card');
@@ -31,38 +30,40 @@ const sectionCards = document.querySelector('.cards');
 const imgEditView = popupElementView.querySelector('.popup__photo-view');
 const titleEditView = popupElementView.querySelector('.popup__title-view');
 
-// общая функция на открытие и закрытие попапов
-const togglePopupVisabillity = function (element) {
-  element.classList.toggle('popup_opened')
+//  функция на открытие попапов
+const openPopup = function (element) {
+  element.classList.add('popup_opened')
+  document.addEventListener('keydown', closePopupByEsc);
 };
 // Закрытие попапа
 const closePopup = function (element) {
   element.classList.remove('popup_opened')
+  document.removeEventListener('keydown', closePopupByEsc);
 };
 
 // слушатель на открытие popupProfile
 buttonOpenEditProfilePopup.addEventListener('click', function () {
   inputUserName.value = nameProfile.textContent;
   inputUserProfession.value = professionProfile.textContent;
-  togglePopupVisabillity(formEditProfile)
+  openPopup(formEditProfile)
 
 });
 // слушатель на открытие popupCards
 buttonOpenAddCardPopup.addEventListener('click', function () {
-  togglePopupVisabillity(popupElementCards)
+  openPopup(popupElementCards)
 });
 
 // слушатель на закрытие buttonCloseEditProfilePopup
 buttonCloseEditProfilePopup.addEventListener('click', function () {
-  togglePopupVisabillity(formEditProfile)
+  closePopup(formEditProfile)
 });
 // слушатель на закрытие buttonCloseAddCardPopup
 buttonCloseAddCardPopup.addEventListener('click', function () {
-  togglePopupVisabillity(popupElementCards)
+  closePopup(popupElementCards)
 });
 
 buttonCloseImagePopup.addEventListener('click', function () {
-  togglePopupVisabillity(popupElementView)
+  closePopup(popupElementView)
 });
 
 // Закрытие по Overlay
@@ -73,21 +74,20 @@ const closeByClickOverlay = function (event) {
 };
 
 // Закрытие по esc
-function closePopupFromEsc(evt) {
+function closePopupByEsc(evt) {
   if (evt.key === 'Escape') {
-    const openedPopup = document.querySelector('.popup_opened');
-    if (openedPopup) {
-      openedPopup.classList.remove('popup_opened');
-    };
+    const popup = document.querySelector('.popup_opened');
+    closePopup(popup);
   };
 };
+
 
 // Возврат значение формы в профиль
 function submitEditProfileForm(evt) {
   evt.preventDefault()
   nameProfile.textContent = inputUserName.value;
   professionProfile.textContent = inputUserProfession.value;
-  togglePopupVisabillity(formEditProfile)
+  closePopup(formEditProfile)
 };
 
 // слушатель на форму профиля
@@ -96,11 +96,9 @@ formEditProfile.addEventListener('submit', submitEditProfileForm);
 // слушатель на Overlay
 document.addEventListener('click', closeByClickOverlay);
 
-// слушатель Esc
-document.addEventListener('keydown', closePopupFromEsc);
 
 function openViewCard(item) {
-  togglePopupVisabillity(popupElementView)
+  openPopup(popupElementView)
   imgEditView.src = item.link;
   imgEditView.alt = item.name;
   titleEditView.textContent = item.name;
@@ -116,6 +114,7 @@ function deleteCard(btn) {
   const cardFindElement = btn.closest('.card');
   cardFindElement.remove();
 };
+
 
 //  ! создание карт
 const createCard = (item) => {
@@ -140,18 +139,25 @@ const renderCard = (item) => {
   const elementCard = createCard
   sectionCards.append(elementCard(item));
 };
+// перебор 6 карт из коробки
+initialCards.forEach((item) => {
+  renderCard(item);
+});
 
 // ! работа с формой карт
-const formCardHandler = (evt) => {
+const submitFormCardHandler = (evt) => {
   evt.preventDefault();
   const newCard = { name: inputCardName.value, link: inputCardLink.value, };
   sectionCards.prepend(createCard(newCard));
 
   formAddCard.reset()
 
-  togglePopupVisabillity(popupElementCards);
+  closePopup(popupElementCards);
+  enableValidation(newCard);
 };
 
 
 
-formAddCard.addEventListener('submit', formCardHandler);
+formAddCard.addEventListener('submit', submitFormCardHandler);
+
+

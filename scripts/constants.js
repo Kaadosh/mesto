@@ -25,6 +25,3 @@ const initialCards = [
   }
 ];
 
-initialCards.forEach((item) => {
-  renderCard(item);
-});

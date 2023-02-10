@@ -3,7 +3,7 @@
   padding: 0;
   margin-left: 22px;
   margin-right: 22px;
-  margin-bottom: 27px;
+  margin-top: 27px;
   outline: none;
   border: none;
   border-color: none;
@@ -14,15 +14,15 @@
 
 }
 
-.popup__field:last-of-type {
-  margin-bottom: 0;
+.popup__field:first-child {
+  margin-top: 0;
 }
 
 .popup__field:focus {
   outline-style: none;
 }
 
-.popup__field:invalid {
+.popup__field:invalid:focus {
   border-bottom: 1px solid #FF0000;
 }
 
