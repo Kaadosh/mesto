@@ -59,7 +59,7 @@ const toggleButtonState = (inputList, buttonElement) => {
     buttonElement.disabled = false;
   }
 };
-// const disableSubmitButton = (inactiveButtonClass, obj.inactiveButtonClass)
+
 
 const enableValidation = () => {
   const formList = Array.from(document.querySelectorAll(obj.formElement));
