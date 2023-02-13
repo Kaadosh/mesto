@@ -154,7 +154,8 @@ const submitFormCardHandler = (evt) => {
 
   closePopup(popupElementCards);
   // Сброс кнопки после отправки формы
-  enableValidation(newCard);
+ 
+    enableValidation(newCard); // не получается сбросить форму функцией toggleButtonState 
 };
 
 
