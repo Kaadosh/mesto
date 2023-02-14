@@ -69,6 +69,16 @@ const enableValidation = () => {
   });
 };
 
+const resetValidation = (formElement, obj) => {
+  const inputList = Array.from(formElement.querySelectorAll(obj.inputElement));
+  const buttonElement = formElement.querySelector(obj.buttonClass);
+  toggleButtonState(inputList, buttonElement, obj);
+  inputList.forEach((inputElement) => {
+    hideInputError(formElement, inputElement, obj);
+  });
+
+};
+
 enableValidation(obj);
 
 

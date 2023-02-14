@@ -62,12 +62,12 @@
         <input type="url" id="urlCard" name="urlCard" class="popup__field popup__field_input_imagecard"
           placeholder="Ссылка на картинку" required>
         <span class="popup__field-error urlCard-error"></span>
-        <button type="submit" name="save" class="popup__button">Сохранить</button>
+        <button type="submit" id="buttonCard" name="save" class="popup__button" disabled>Сохранить</button>
       </form>
     </div>
   </div><!-- popup -->
 
-  <div class="popup popup-view" id="popup__view">
+  <div class=" popup popup-view" id="popup__view">
     <div class="popup__view-container">
       <img class="popup__photo-view" src="#" alt="#">
       <h2 class="popup__title-view"></h2>
@@ -85,8 +85,9 @@
     </article>
   </template>
   <script src="./scripts/constants.js"></script>
-  <script src="./scripts/index.js"></script>
   <script src="./scripts/validate.js"></script>
+  <script src="./scripts/index.js"></script>
+
 </body>
 
 </html>

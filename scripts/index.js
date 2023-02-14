@@ -2,6 +2,7 @@
 const formEditProfile = document.querySelector('#popup__profile');
 const popupElementCards = document.querySelector('#popup__add-card');
 const popupElementView = document.querySelector('#popup__view');
+
 // откытие попапов
 const buttonOpenEditProfilePopup = document.querySelector('.profile__button');
 const buttonOpenAddCardPopup = document.querySelector('.profile__add');
@@ -21,6 +22,7 @@ const professionProfile = document.querySelector('.profile__subtitle');
 const formAddCard = document.querySelector('.popup__form-cards');
 const inputCardName = formAddCard.querySelector('.popup__field_input_namecard');
 const inputCardLink = formAddCard.querySelector('.popup__field_input_imagecard');
+const buttonPopup = document.querySelector('#buttonCard');
 
 // template 
 const templateCards = document.querySelector('#cards').content;
@@ -34,6 +36,7 @@ const titleEditView = popupElementView.querySelector('.popup__title-view');
 const openPopup = function (element) {
   element.classList.add('popup_opened')
   document.addEventListener('keydown', closePopupByEsc);
+
 };
 // Закрытие попапа
 const closePopup = function (element) {
@@ -144,6 +147,10 @@ initialCards.forEach((item) => {
   renderCard(item);
 });
 
+const buttonDisabled = (evt) => {
+  evt.classList.add("popup__button_inactive");
+  evt.setAttribute("disabled", "");
+}
 // ! работа с формой карт
 const submitFormCardHandler = (evt) => {
   evt.preventDefault();
@@ -151,15 +158,15 @@ const submitFormCardHandler = (evt) => {
   sectionCards.prepend(createCard(newCard));
 
   formAddCard.reset()
-
   closePopup(popupElementCards);
   // Сброс кнопки после отправки формы
- 
-    enableValidation(newCard); // не получается сбросить форму функцией toggleButtonState 
+  buttonDisabled(buttonPopup);
+
+  // enableValidation(newCard); // не получается сбросить форму функцией toggleButtonState 
 };
 
-
-
 formAddCard.addEventListener('submit', submitFormCardHandler);
+
+
 
 
