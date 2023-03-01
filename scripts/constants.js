@@ -25,3 +25,13 @@ const initialCards = [
   }
 ];
 
+const validateConfig = ({
+  formElement: '.popup__form',
+  inputElement: '.popup__field',
+  buttonClass: '.popup__button',
+  inactiveButtonClass: 'popup__button_inactive',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__field-error_active'
+});
+
+export { initialCards, validateConfig };
