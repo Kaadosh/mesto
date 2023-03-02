@@ -1,6 +1,6 @@
 import { openPopup, imgEditView, titleEditView, popupElementView } from './index.js'
 
-export default class Cards {
+export default class Card {
   constructor(data, templateSelector) {
     this._name = data.name;
     this._link = data.link;
@@ -8,7 +8,7 @@ export default class Cards {
   }
 
   _getTemplate() {
-    const cardElement = document.querySelector('#cards')
+    const cardElement = document.querySelector(this._templateSelector)
       .content
       .querySelector('.card')
       .cloneNode(true);
@@ -17,32 +17,37 @@ export default class Cards {
 
   generateCard() {
     this._element = this._getTemplate();
-    this._element.querySelector('.card__photo').src = this._link;
+    this._cardPhoto = this._element.querySelector('.card__photo');
+    this._cardLike = this._element.querySelector('.card__like');
+    this._cardPhoto.src = this._link;
+    this._cardPhoto.alt = this._name;
     this._element.querySelector('.card__title').textContent = this._name;
     this._setEventListeners();
+
     return this._element;
   }
 
   _setEventListeners() {
-    this._element.querySelector('.card__like').addEventListener('click', () => {
-      this._likeCards();
+    this._cardLike.addEventListener('click', () => {
+      this._likeCard();
     });
     this._element.querySelector('.card__delete').addEventListener('click', () => {
       this._deleteCard();
     });
     this._element.querySelector('.card__photo').addEventListener('click', () => {
-      this._bigPhoto(this._name, this._link);
+      this._openBigPhoto(this._name, this._link);
     });
   }
   // Метод лайк
-  _likeCards() {
-    this._element.querySelector('.card__like').classList.toggle('card__like_active');
+  _likeCard() {
+    this._cardLike.classList.toggle('card__like_active');
   }
+
   _deleteCard() {
-    const deleteCard = this._element.querySelector('.card__delete').closest('.card');
-    deleteCard.remove();
+    this._element.remove();
   }
-  _bigPhoto() {
+  
+  _openBigPhoto() {
     openPopup(popupElementView)
     imgEditView.src = this._link;
     imgEditView.alt = this._name;

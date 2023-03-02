@@ -1,5 +1,5 @@
 
-export default class FormValidate {
+export default class FormValidator {
   constructor(data, formElement) {
     this._data = data;
     this._formElement = formElement;
@@ -18,7 +18,7 @@ export default class FormValidate {
     this.errorElement.classList.remove(this._data.errorClass);
     this.errorElement.textContent = '';
   }
-  _isValid = (inputElement) => {
+  _toggleInputErrorState = (inputElement) => {
     if (!inputElement.validity.valid) {
       this._showInputError(inputElement);
     } else {
@@ -27,19 +27,19 @@ export default class FormValidate {
   }
 
   _setEventListeners() {
-    this.inputList = Array.from(this._formElement.querySelectorAll(this._data.inputElement))
+    this._inputList = Array.from(this._formElement.querySelectorAll(this._data.inputElement))
     this._buttonElement = this._formElement.querySelector(this._data.buttonClass);
     this._toggleButtonState();
-    this.inputList.forEach((inputElement) => {
+    this._inputList.forEach((inputElement) => {
       inputElement.addEventListener('input', () => {
-        this._isValid(inputElement)
+        this._toggleInputErrorState(inputElement)
         this._toggleButtonState()
       });
     });
   };
 
   _hasInvalidInput() {
-    return this.inputList.some((inputElement) => {
+    return this._inputList.some((inputElement) => {
       return !inputElement.validity.valid;
     });
   }
@@ -59,8 +59,9 @@ export default class FormValidate {
   }
 
   resetValidation() {
-    this.inputList.forEach((inputElement) => {
-      return !inputElement.validity.valid;
+    this._inputList.forEach((inputElement) => {
+      this._hideInputError(inputElement)
     });
-  }
+     this._toggleButtonState()
+  };
 }
