@@ -1,5 +1,5 @@
 
-export default class FormValidator {
+ export default class FormValidator {
   constructor(data, formElement) {
     this._data = data;
     this._formElement = formElement;
@@ -65,3 +65,4 @@ export default class FormValidator {
      this._toggleButtonState()
   };
 }
+

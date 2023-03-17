@@ -1,10 +1,11 @@
-import { openPopup, imgEditView, titleEditView, popupElementView } from './index.js'
+//  import { openPopup, imgEditView, titleEditView, popupElementView } from './index.js'
 
-export default class Card {
-  constructor(data, templateSelector) {
+ export default class Card {
+  constructor(data, templateSelector, hundleCardClick) {
     this._name = data.name;
     this._link = data.link;
     this._templateSelector = templateSelector;
+    this._hundleCardClick = hundleCardClick;
   }
 
   _getTemplate() {
@@ -35,7 +36,7 @@ export default class Card {
       this._deleteCard();
     });
     this._element.querySelector('.card__photo').addEventListener('click', () => {
-      this._openBigPhoto(this._name, this._link);
+      this._hundleCardClick(this._name, this._link);
     });
   }
   // Метод лайк
@@ -47,10 +48,11 @@ export default class Card {
     this._element.remove();
   }
   
-  _openBigPhoto() {
-    openPopup(popupElementView)
-    imgEditView.src = this._link;
-    imgEditView.alt = this._name;
-    titleEditView.textContent = this._name;
-  }
+  // _openBigPhoto() {
+  //   openPopup(popupElementView)
+  //   imgEditView.src = this._link;
+  //   imgEditView.alt = this._name;
+  //   titleEditView.textContent = this._name;
+  // }
 }
+
