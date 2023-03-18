@@ -30,7 +30,7 @@ const popupEditFormProfile = document.querySelector('.popup__form-profile');
 const formAddCard = document.querySelector('.popup__form-cards');
 const inputCardName = formAddCard.querySelector('.popup__field_input_namecard');
 const inputCardLink = formAddCard.querySelector('.popup__field_input_imagecard');
-  const buttonPopup = document.querySelector('#buttonCard');
+const buttonPopup = document.querySelector('#buttonCard');
 
 // template 
 // const templateCards = document.querySelector('#cards').content;
