@@ -5,18 +5,16 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <link rel="stylesheet" href="./pages/index.css">
   <title>Место</title>
 </head>
 
 <body class="page">
   <header class="header">
-    <img src="./img/logo/logo.svg" class="header__logo" alt="логотип mesto">
+    <img src="<%=require(./img/logo/logo.svg)%>" class="header__logo" alt="логотип mesto">
   </header>
   <main class="main">
     <section class="profile">
-      <img src="./img/Avatar.jpg" class="profile__img" alt="изображение Жак-Ива Кусто">
+      <img src="<%=require(./img/Avatar.jpg)%>" class="profile__img" alt="изображение Жак-Ива Кусто">
       <div class="profile__info">
         <div class="profile__info-name">
           <h1 class="profile__title">Жак-Ив Кусто</h1>
@@ -41,7 +39,7 @@
       <button type="button" aria-label="закрыть" class="popup__close popup__close-profile"></button>
       <h2 class="popup__title">Редактировать профиль</h2>
       <form class="popup__form popup__form-profile" name="formProfile" novalidate>
-        <input type="text" id="nickName" name="nickName" class="popup__field popup__field_input_nickname"
+        <input type="text" id="nickName" name="name" class="popup__field popup__field_input_nickname"
           value="Жак-Ив Кусто" minlength="2" maxlength="40" required>
         <span class="popup__field-error nickName-error"></span>
         <input type="text" id="profession" name="profession" class="popup__field popup__field_input_profession"
@@ -85,7 +83,7 @@
     </article>
   </template>
 
-  <script type="module" src="../src/pages/index.js"></script>
+  <script type="module" src="./index.js"></script>
 
 </body>
 

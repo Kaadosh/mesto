@@ -1,10 +1,12 @@
+import './index.css';
 import Card from '../components/Card.js'
-import FormValidator from '../components/FormValidator.js';
+import FormValidator from '../components/FormValidator';
 import { initialCards, validateConfig } from '../components/constants.js'
 import PopupWithForm from '../components/PopupWithForm.js';
 import PopupWithImage from '../components/PopupWithImage.js';
 import Section from '../components/Section.js';
 import UserInfo from '../components/UserInfo.js';
+
 // popups
 const popupEditProfile = document.querySelector('#popup__profile');
 const popupElementCards = document.querySelector('#popup__add-card');
@@ -96,3 +98,4 @@ profileValidation.enableValidation();
 
 const placeValidation = new FormValidator(validateConfig, formAddCard);
 placeValidation.enableValidation();
+
