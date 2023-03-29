@@ -84,7 +84,7 @@ function handleCardClick(name, link) {
 
 const popupAddCard = new PopupWithForm("#popup__add-card", {
   callbackSubmitForm: (FormData) => {
-    cardSection.setItem(FormData);
+    cardSection.addItem(addCard(FormData));
     popupAddCard.close();
   },
 });
