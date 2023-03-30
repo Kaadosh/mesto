@@ -17,11 +17,19 @@
     </header>
     <main class="main">
       <section class="profile">
-        <img
-          src="3f3cda93da54f6f9181a.jpg"
-          class="profile__img"
-          alt="изображение Жак-Ива Кусто"
-        />
+        <div class="profile__wrap">
+          <img
+            src="3f3cda93da54f6f9181a.jpg"
+            class="profile__img"
+            alt="изображение Жак-Ива Кусто"
+          />
+          <button
+            class="profile__etit-button"
+            type="button"
+            title="Изменить аватар"
+          ></button>
+        </div>
+
         <div class="profile__info">
           <div class="profile__info-name">
             <h1 class="profile__title">Жак-Ив Кусто</h1>
@@ -145,23 +153,59 @@
       </div>
     </div>
     <!-- popup big -->
-    <!-- popup you shure? -->
-    <div class="popup popup__confirm" id="popup__confirm">
-      <div class="popup__confirm-container">
-        <h2 class="popup__title-view">Вы уверены?</h2>
-        <button
-          type="submit"
-          id="buttonConfirm"
-          name="confirm"
-          class="popup__button"
-        >
-          Сохранить
-        </button>
+    <div class="popup" id="popup__add-avatar">
+      <div class="popup__container">
         <button
           type="button"
           aria-label="закрыть"
-          class="popup__close popup__close-confirm"
+          class="popup__close popup__close-avatar"
         ></button>
+        <h2 class="popup__title">Обновить аватар</h2>
+        <form
+          class="popup__form popup__form-cards"
+          name="formAvatar"
+          novalidate
+        >
+          <input
+            type="url"
+            id="urlAvatar"
+            name="urlAvatar"
+            class="popup__field popup__field_input_avatar"
+            placeholder="Ссылка на аватарку"
+            required
+          />
+          <span class="popup__field-error urlCard-error"></span>
+          <button
+            type="submit"
+            id="buttonCard"
+            name="save"
+            class="popup__button"
+            disabled
+          >
+            Сохранить
+          </button>
+        </form>
+      </div>
+    </div>
+    <!-- popup you shure? -->
+    <div class="popup" id="popup__confirm">
+      <div class="popup__container">
+        <button
+          type="button"
+          aria-label="закрыть"
+          class="popup__close popup__close-card"
+        ></button>
+        <h2 class="popup__title">Вы уверены?</h2>
+        <form class="popup__form popup__form-cards" name="formCards" novalidate>
+          <button
+            type="submit"
+            id="buttonShure"
+            name="save"
+            class="popup__button"
+          >
+            Да
+          </button>
+        </form>
       </div>
     </div>
     <!-- popup you shure? -->
