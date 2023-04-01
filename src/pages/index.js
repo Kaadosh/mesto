@@ -9,23 +9,10 @@ import UserInfo from "../components/UserInfo.js";
 import Api from "../components/Api";
 import PopupWithConfirm from "../components/PopupWhithConfirm.js";
 
-// popups
-// const popupProfile = document.querySelector("#popup__profile");
-// const popupElementCards = document.querySelector("#popup__add-card");
-// const popupElementView = document.querySelector("#popup__view");
-// откытие попапов
+let userId;
 const buttonOpenEditProfilePopup = document.querySelector(".profile__button");
 const buttonOpenAddCardPopup = document.querySelector(".profile__add");
 const buttonOpenAvatar = document.querySelector(".profile__button-avatar");
-// закрытие попапов
-// const buttonCloseEditProfilePopup = popupProfile.querySelector(
-//   ".popup__close-profile"
-// );
-// const buttonCloseAddCardPopup =
-//   popupElementCards.querySelector(".popup__close-card");
-// const buttonCloseImagePopup =
-//   popupElementView.querySelector(".popup__close-view");
-// // форма редоктирования профайла
 const popupEditFormProfile = document.querySelector(".popup__form-profile");
 const inputUserName = popupEditFormProfile.querySelector(
   ".popup__field_input_nickname"
@@ -33,21 +20,9 @@ const inputUserName = popupEditFormProfile.querySelector(
 const inputUserProfession = popupEditFormProfile.querySelector(
   ".popup__field_input_profession"
 );
-// const nameProfile = document.querySelector(".profile__title");
-// const professionProfile = document.querySelector(".profile__subtitle");
-
-// форма редоктирования карт
 const formAddCard = document.querySelector(".popup__form-cards");
-// const inputCardName = formAddCard.querySelector(".popup__field_input_namecard");
-// const inputCardLink = formAddCard.querySelector(
-//   ".popup__field_input_imagecard"
-// );
-// const buttonPopup = document.querySelector("#buttonCard");
-let userId;
-// template
-// const templateCards = document.querySelector('#cards').content;
 const sectionCards = document.querySelector(".cards");
-
+// ----------------------------------------------------------------------------------------------------------------------------------------------------//
 const api = new Api({
   baseUrl: "https://mesto.nomoreparties.co/v1/cohort-62",
   headers: {
@@ -55,13 +30,25 @@ const api = new Api({
     "Content-Type": "application/json",
   },
 });
-
+// ----------------------------------------------------------------------------------------------------------------------------------------------------//
 const userInfo = new UserInfo(
   ".profile__title",
   ".profile__subtitle",
   ".profile__img"
 );
 const bigImgOpen = new PopupWithImage(".popup-view");
+//----------------------------------------------------------------------------------------------------------------------------------------------------//
+Promise.all([api.getUserInfo(), api.getCards])
+  .then(([{ name, about, avatar, _id }]) => {
+    userInfo.setUserInfo({ name, profession: about });
+    userInfo.setUserAvatar({ avatar });
+    userId = _id;
+    cardSection.renderItems(cardSection.setItems(data[1].reverse()));
+  })
+  .catch((err) => {
+    `Ошибка:${err}`;
+  });
+// ----------------------------------------------------------------------------------------------------------------------------------------------------//
 const popupEditProfile = new PopupWithForm("#popup__profile", {
   callbackSubmitForm: (formData) => {
     popupEditProfile.lodingButton("Сохранение...");
@@ -79,6 +66,7 @@ const popupEditProfile = new PopupWithForm("#popup__profile", {
       });
   },
 });
+// ----------------------------------------------------------------------------------------------------------------------------------------------------//
 function addCard(item) {
   const card = new Card(
     item,
@@ -91,7 +79,7 @@ function addCard(item) {
   );
   return card.generateCard();
 }
-
+//----------------------------------------------------------------------------------------------------------------------------------------------------//
 const cardSection = new Section(
   {
     items: api
@@ -110,7 +98,7 @@ const cardSection = new Section(
   sectionCards
 );
 cardSection.renderItems();
-
+//----------------------------------------------------------------------------------------------------------------------------------------------------//
 const popupWhithConfirm = new PopupWithConfirm("#popup__confirm", {
   callbackSubmitForm: (itemId, card) => {
     popupWhithConfirm.lodingButton("Сохранение...");
@@ -129,7 +117,7 @@ const popupWhithConfirm = new PopupWithConfirm("#popup__confirm", {
   },
 });
 popupWhithConfirm.setEventListeners();
-
+//----------------------------------------------------------------------------------------------------------------------------------------------------//
 function setLike(item, card) {
   api
     .likeCard(item._id)
@@ -141,7 +129,7 @@ function setLike(item, card) {
       console.log(`Ошибка:${err}`);
     });
 }
-
+//----------------------------------------------------------------------------------------------------------------------------------------------------//
 function deleteLike(item, card) {
   api
     .unlikeCard(item._id)
@@ -153,12 +141,12 @@ function deleteLike(item, card) {
       console.log(`Ошибка:${err}`);
     });
 }
-
+//----------------------------------------------------------------------------------------------------------------------------------------------------//
 function handleCardClick(name, link) {
   const data = { name: name, link: link };
   bigImgOpen.open(data);
 }
-
+//----------------------------------------------------------------------------------------------------------------------------------------------------//
 const popupEditAvatar = new PopupWithForm("#popup__add-avatar", {
   callbackSubmitForm: (formData) => {
     popupEditAvatar.lodingButton();
@@ -177,7 +165,7 @@ const popupEditAvatar = new PopupWithForm("#popup__add-avatar", {
   },
 });
 popupEditAvatar.setEventListeners();
-
+//----------------------------------------------------------------------------------------------------------------------------------------------------//
 const popupAddCard = new PopupWithForm("#popup__add-card", {
   callbackSubmitForm: (formData) => {
     popupAddCard.lodingButton();
@@ -196,7 +184,7 @@ const popupAddCard = new PopupWithForm("#popup__add-card", {
   },
 });
 popupAddCard.setEventListeners();
-
+//----------------------------------------------------------------------------------------------------------------------------------------------------//
 const openPopupProfile = () => {
   const user = userInfo.getUserInfo();
   inputUserName.value = user.name;
@@ -204,44 +192,34 @@ const openPopupProfile = () => {
   popupEditProfile.open();
   profileValidation.resetValidation();
 };
-
+//----------------------------------------------------------------------------------------------------------------------------------------------------//
 const openAddPopup = () => {
   placeValidation.resetValidation();
   popupAddCard.open();
 };
-
+//----------------------------------------------------------------------------------------------------------------------------------------------------//
 function popupConfirm(itemId, card) {
   popupWhithConfirm.open();
   popupWhithConfirm.setItemConfirm(itemId, card);
 }
-
+//----------------------------------------------------------------------------------------------------------------------------------------------------//
 const avatarOpenPopup = () => {
   placeValidation.resetValidation();
   popupEditAvatar.open();
 };
-
+//----------------------------------------------------------------------------------------------------------------------------------------------------//
 buttonOpenAddCardPopup.addEventListener("click", openAddPopup);
 buttonOpenEditProfilePopup.addEventListener("click", openPopupProfile);
 popupEditProfile.setEventListeners();
 bigImgOpen.setEventListeners();
 buttonOpenAvatar.addEventListener("click", avatarOpenPopup);
-
+//----------------------------------------------------------------------------------------------------------------------------------------------------//
 const profileValidation = new FormValidator(
   validateConfig,
   popupEditFormProfile
 );
 profileValidation.enableValidation();
-
+//----------------------------------------------------------------------------------------------------------------------------------------------------//
 const placeValidation = new FormValidator(validateConfig, formAddCard);
 placeValidation.enableValidation();
-
-Promise.all([api.getUserInfo(), api.getCards])
-  .then(([{ name, about, avatar, _id }]) => {
-    userInfo.setUserInfo({ name, profession: about });
-    userInfo.setUserAvatar({ avatar });
-    userId = _id;
-    cardSection.renderItems(cardSection.setItems(data[1].reverse()));
-  })
-  .catch((err) => {
-    `Ошибка:${err}`;
-  });
+//----------------------------------------------------------------------------------------------------------------------------------------------------//
