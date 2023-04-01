@@ -13,12 +13,25 @@ export default class PopupWithForm extends Popup {
     });
     return this._formList;
   }
+  lodingButton() {
+    this._buttonClose.textContent = "Сохранение...";
+    this._buttonClose.disabled = true;
+  }
+
+  resetButton() {
+    this._buttonClose.textContent = "Сохранить";
+    this._buttonClose.disabled = false;
+  }
 
   setEventListeners() {
     super.setEventListeners();
     this._popup.addEventListener("submit", (evt) => {
       evt.preventDefault();
-      this._callbackSubmitForm(this._getInputValues());
+      this._callbackSubmitForm(
+        this._getInputValues(),
+        this._itemId,
+        this._card
+      );
     });
   }
 

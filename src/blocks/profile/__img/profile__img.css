@@ -4,10 +4,10 @@
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
+  position: relative;
 }
-
 
 @media screen and (width>=1279px) {
   .profile__img {
