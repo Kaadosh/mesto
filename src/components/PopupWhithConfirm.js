@@ -12,12 +12,12 @@ export default class PopupWithConfirm extends Popup {
   }
 
   lodingButton() {
-    this._buttonClose.textContent = "Сохранение...";
+    this._buttonClose.textContent = "Удаление...";
     this._buttonClose.disabled = true;
   }
 
   resetButton() {
-    this._buttonClose.textContent = "Сохранить";
+    this._buttonClose.textContent = "Да";
     this._buttonClose.disabled = false;
   }
 

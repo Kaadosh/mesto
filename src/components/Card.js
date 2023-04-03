@@ -1,5 +1,3 @@
-//  import { openPopup, imgEditView, titleEditView, popupElementView } from './index.js'
-
 export default class Card {
   constructor(
     data,
@@ -7,7 +5,7 @@ export default class Card {
     templateSelector,
     hundleCardClick,
     putLike,
-    disLike,
+    deleteLike,
     confirm
   ) {
     this._name = data.name;
@@ -19,7 +17,7 @@ export default class Card {
     this._userId = userId;
     this._ownerId = data.owner._id;
     this._putlike = putLike;
-    this._dislike = disLike;
+    this._deleteLike = deleteLike;
     this._confirm = confirm;
   }
 
@@ -54,14 +52,14 @@ export default class Card {
     }
 
     if (this._counterLikes.find((element) => this._userId === element._id)) {
-      this._likeCard();
+      this.likeActive();
     } else {
       this.deleteLike();
     }
     return this._element;
   }
 
-  _likeCard() {
+  likeActive() {
     this._cardLike.classList.add("card__like_active");
   }
 
@@ -80,7 +78,7 @@ export default class Card {
   _setEventListeners() {
     this._cardLike.addEventListener("click", () => {
       if (this._cardLike.classList.contains("card__like_active")) {
-        this.deleteLike();
+        this._deleteLike();
       } else {
         this._putlike();
       }

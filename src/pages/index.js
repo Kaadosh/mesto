@@ -22,6 +22,7 @@ const inputUserProfession = popupEditFormProfile.querySelector(
 );
 const formAddCard = document.querySelector(".popup__form-cards");
 const sectionCards = document.querySelector(".cards");
+const buttonSubmitAvatar = document.querySelector(".popup__form-avatar");
 // ----------------------------------------------------------------------------------------------------------------------------------------------------//
 const api = new Api({
   baseUrl: "https://mesto.nomoreparties.co/v1/cohort-62",
@@ -43,7 +44,7 @@ Promise.all([api.getUserInfo(), api.getCards])
     userInfo.setUserInfo({ name, profession: about });
     userInfo.setUserAvatar({ avatar });
     userId = _id;
-    cardSection.renderItems(cardSection.setItems(data[1].reverse()));
+    cardSection.renderItems();
   })
   .catch((err) => {
     `Ошибка:${err}`;
@@ -51,7 +52,7 @@ Promise.all([api.getUserInfo(), api.getCards])
 // ----------------------------------------------------------------------------------------------------------------------------------------------------//
 const popupEditProfile = new PopupWithForm("#popup__profile", {
   callbackSubmitForm: (formData) => {
-    popupEditProfile.lodingButton("Сохранение...");
+    popupEditProfile.lodingButton();
     api
       .editUserInfo(formData)
       .then(() => {
@@ -63,6 +64,9 @@ const popupEditProfile = new PopupWithForm("#popup__profile", {
       })
       .catch((err) => {
         console.log(`Ошибка:${err}`);
+      })
+      .finally(() => {
+        popupEditProfile.resetButton();
       });
   },
 });
@@ -123,7 +127,7 @@ function setLike(item, card) {
     .likeCard(item._id)
     .then((res) => {
       card.likeCount(res);
-      card._likeCard();
+      card.likeActive();
     })
     .catch((err) => {
       console.log(`Ошибка:${err}`);
@@ -204,8 +208,8 @@ function popupConfirm(itemId, card) {
 }
 //----------------------------------------------------------------------------------------------------------------------------------------------------//
 const avatarOpenPopup = () => {
-  placeValidation.resetValidation();
   popupEditAvatar.open();
+  // editValidation.resetValidation();
 };
 //----------------------------------------------------------------------------------------------------------------------------------------------------//
 buttonOpenAddCardPopup.addEventListener("click", openAddPopup);
@@ -223,3 +227,5 @@ profileValidation.enableValidation();
 const placeValidation = new FormValidator(validateConfig, formAddCard);
 placeValidation.enableValidation();
 //----------------------------------------------------------------------------------------------------------------------------------------------------//
+// const editValidation = new FormValidator(validateConfig, buttonSubmitAvatar);
+// editValidation.enableValidation();
