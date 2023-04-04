@@ -71,7 +71,7 @@ export default class Card {
     this._numberLike.textContent = `${res.likes.length}`;
   }
 
-  _deleteCard() {
+  deleteCard() {
     this._element.remove();
   }
 

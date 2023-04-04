@@ -5,6 +5,7 @@ export default class PopupWithForm extends Popup {
     super(popupSelector);
     this._callbackSubmitForm = callbackSubmitForm;
     this._form = this._popup.querySelector(".popup__form");
+    this._field = this._popup.querySelectorAll(".popup__field");
   }
 
   _getInputValues() {
@@ -16,12 +17,12 @@ export default class PopupWithForm extends Popup {
   }
   lodingButton() {
     this._buttonClose.textContent = "Сохранение...";
-    this._buttonClose.disabled = true;
+    // this._buttonClose.disabled = true;
   }
 
-  resetButton() {
-    this._buttonClose.textContent = "Сохранить";
-    this._buttonClose.disabled = false;
+  resetButton(text) {
+    this._buttonClose.textContent = text;
+    // this._buttonClose.disabled = false;
   }
 
   setEventListeners() {

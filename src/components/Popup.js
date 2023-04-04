@@ -2,7 +2,6 @@ export default class Popup {
   constructor(popupSelector) {
     this._popup = document.querySelector(popupSelector);
     this._Escape = "Escape";
-    this._field = this._popup.querySelectorAll(".popup__field");
     this._popupClose = this._popup.querySelector(".popup__close");
     this._buttonClose = this._popup.querySelector(".popup__button");
   }
@@ -17,7 +16,6 @@ export default class Popup {
     this._popup.classList.remove("popup_opened");
     // Удаление слушателя по ESC
     document.removeEventListener("keydown", this._handleEscClose);
-    this._popup.removeEventListener("click", this._closePopupOverLay);
   }
 
   _handleEscClose = (evt) => {
@@ -35,7 +33,9 @@ export default class Popup {
   setEventListeners() {
     this._popupClose.addEventListener("click", () => {
       this.close();
-      this._popup.addEventListener("click", this._closePopupOverLay);
+      this._popup.addEventListener("mousedown", (evt) => {
+        this._closePopupOverLay(evt);
+      });
     });
   }
 }

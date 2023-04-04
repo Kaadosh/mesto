@@ -22,7 +22,7 @@ const inputUserProfession = popupEditFormProfile.querySelector(
 );
 const formAddCard = document.querySelector(".popup__form-cards");
 const sectionCards = document.querySelector(".cards");
-const buttonSubmitAvatar = document.querySelector(".popup__form-avatar");
+const submitAvatar = document.querySelector(".popup__form-avatar");
 // ----------------------------------------------------------------------------------------------------------------------------------------------------//
 const api = new Api({
   baseUrl: "https://mesto.nomoreparties.co/v1/cohort-62",
@@ -39,7 +39,7 @@ const userInfo = new UserInfo(
 );
 const bigImgOpen = new PopupWithImage(".popup-view");
 //----------------------------------------------------------------------------------------------------------------------------------------------------//
-Promise.all([api.getUserInfo(), api.getCards])
+Promise.all([api.getUserInfo(), api.getCards()])
   .then(([{ name, about, avatar, _id }]) => {
     userInfo.setUserInfo({ name, profession: about });
     userInfo.setUserAvatar({ avatar });
@@ -57,7 +57,6 @@ const popupEditProfile = new PopupWithForm("#popup__profile", {
       .editUserInfo(formData)
       .then(() => {
         userInfo.setUserInfo(formData);
-        api.editUserInfo(formData);
       })
       .then(() => {
         popupEditProfile.close();
@@ -66,7 +65,7 @@ const popupEditProfile = new PopupWithForm("#popup__profile", {
         console.log(`Ошибка:${err}`);
       })
       .finally(() => {
-        popupEditProfile.resetButton();
+        popupEditProfile.resetButton("Cохранить");
       });
   },
 });
@@ -87,7 +86,7 @@ function addCard(item) {
 const cardSection = new Section(
   {
     items: api
-      .getCards()
+      .getCards() // видимо я не очень понимаю ваше замечание,при удалении данного метода ломается логика доб.карточек
       .then((result) => {
         return result.reverse();
       })
@@ -109,14 +108,14 @@ const popupWhithConfirm = new PopupWithConfirm("#popup__confirm", {
     api
       .removeCard(itemId)
       .then(() => {
-        card._deleteCard();
+        card.deleteCard();
         popupWhithConfirm.close();
       })
       .catch((err) => {
         `Ошибка:${err}`;
       })
       .finally(() => {
-        popupWhithConfirm.resetButton();
+        popupWhithConfirm.resetButton("Создать");
       });
   },
 });
@@ -164,7 +163,7 @@ const popupEditAvatar = new PopupWithForm("#popup__add-avatar", {
         console.log(`Ошибка:${err}`);
       })
       .finally(() => {
-        popupEditAvatar.resetButton();
+        popupEditAvatar.resetButton("Сохранить");
       });
   },
 });
@@ -183,7 +182,7 @@ const popupAddCard = new PopupWithForm("#popup__add-card", {
         console.log(`Ошибка:${err}`);
       })
       .finally(() => {
-        popupAddCard.resetButton();
+        popupAddCard.resetButton("Cохранить");
       });
   },
 });
@@ -209,7 +208,7 @@ function popupConfirm(itemId, card) {
 //----------------------------------------------------------------------------------------------------------------------------------------------------//
 const avatarOpenPopup = () => {
   popupEditAvatar.open();
-  // editValidation.resetValidation();
+  editValidation.resetValidation();
 };
 //----------------------------------------------------------------------------------------------------------------------------------------------------//
 buttonOpenAddCardPopup.addEventListener("click", openAddPopup);
@@ -227,5 +226,5 @@ profileValidation.enableValidation();
 const placeValidation = new FormValidator(validateConfig, formAddCard);
 placeValidation.enableValidation();
 //----------------------------------------------------------------------------------------------------------------------------------------------------//
-// const editValidation = new FormValidator(validateConfig, buttonSubmitAvatar);
-// editValidation.enableValidation();
+const editValidation = new FormValidator(validateConfig, submitAvatar);
+editValidation.enableValidation();

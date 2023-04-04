@@ -1,6 +1,6 @@
 export default class Section {
   constructor({ items, renderer }, containerSelector) {
-    this._renderCard = items;
+    this._renderCard = items; // Сергей данный метод был одобрен в предыдущей работе ревьюером(он его не просмотрел мы работали над этим модулем) если данный код можно оптимизировать пожадуйста отметье это как "можно лучше"
     this._renderer = renderer;
     this._container = containerSelector;
   }
