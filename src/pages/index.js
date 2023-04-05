@@ -40,11 +40,11 @@ const userInfo = new UserInfo(
 const bigImgOpen = new PopupWithImage(".popup-view");
 //----------------------------------------------------------------------------------------------------------------------------------------------------//
 Promise.all([api.getUserInfo(), api.getCards()])
-  .then(([{ name, about, avatar, _id }]) => {
+  .then(([{ name, about, avatar, _id }, cards]) => {
     userInfo.setUserInfo({ name, profession: about });
     userInfo.setUserAvatar({ avatar });
     userId = _id;
-    cardSection.renderItems();
+    cardSection.renderItems(cards);
   })
   .catch((err) => {
     `Ошибка:${err}`;
@@ -85,14 +85,6 @@ function addCard(item) {
 //----------------------------------------------------------------------------------------------------------------------------------------------------//
 const cardSection = new Section(
   {
-    items: api
-      .getCards() // видимо я не очень понимаю ваше замечание,при удалении данного метода ломается логика доб.карточек
-      .then((result) => {
-        return result.reverse();
-      })
-      .catch((err) => {
-        console.log(err);
-      }),
     renderer: (item) => {
       const cardElement = addCard(item);
       cardSection.addItem(cardElement);
@@ -100,7 +92,7 @@ const cardSection = new Section(
   },
   sectionCards
 );
-cardSection.renderItems();
+
 //----------------------------------------------------------------------------------------------------------------------------------------------------//
 const popupWhithConfirm = new PopupWithConfirm("#popup__confirm", {
   callbackSubmitForm: (itemId, card) => {
